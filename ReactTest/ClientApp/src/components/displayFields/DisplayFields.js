@@ -12,7 +12,6 @@ class DisplayFields extends Component {
     componentDidMount() {
         axios.get('/properties/properties')
             .then(response => {
-                console.log(response)
                 this.setState({data: response.data})
             })
             .catch(e => {
@@ -24,13 +23,7 @@ class DisplayFields extends Component {
         console.log(this.state.data)
         return (
             <div>
-                <h1>
-                    TestReactApp testing on local environment
-                </h1>
                 <TableContent dataRows={this.state.data} />
-                <Button variant="success">
-                    Consultar
-                </Button>
             </div>
         )
     }

@@ -37,7 +37,7 @@ const tableContent = (props) => {
                             <td>{row.monthlyPrice}</td>
                             <td>{row.grossYield}</td>
                             <td>
-                                <Button variant="success">
+                                <Button id= {row.id} variant="success">
                                     save
                                 </Button>
                             </td>
