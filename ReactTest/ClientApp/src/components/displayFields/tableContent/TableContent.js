@@ -2,7 +2,6 @@
 import { Table, Button } from 'react-bootstrap';
 
 const tableContent = (props) => {
-    console.log(props.dataRows)
 
     let myRows = null;
     let headRow = null;
@@ -24,8 +23,6 @@ const tableContent = (props) => {
             </tr>
         </tbody>
     if (props.dataRows != null) {
-        console.log("data row is not null")
-
         myRows =
             props.dataRows.map((row, i = 0) => {
                 return (
@@ -33,11 +30,14 @@ const tableContent = (props) => {
                         <tr>
                             <td>{row.address}</td>
                             <td>{row.yearBuild}</td>
-                            <td>{row.listPrice}</td>
-                            <td>{row.monthlyPrice}</td>
-                            <td>{row.grossYield}</td>
+                            <td>{`\$ ${row.listPrice.toFixed(2)}`}</td>
+                            <td>{`\$ ${row.monthlyPrice.toFixed(2)}`}</td>
+                            <td>{`${row.grossYield.toFixed(2)} %`}</td>
                             <td>
-                                <Button id= {row.id} variant="success">
+                                <Button
+                                    onClick={() => props.buttonEvent(row.id)}
+                                    id={row.id} variant="success"
+                                >
                                     save
                                 </Button>
                             </td>

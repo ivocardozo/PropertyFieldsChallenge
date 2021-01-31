@@ -50,7 +50,7 @@ namespace PropertyApp.Services
                 YearBuild = property.Financial != null ? property.Physical.YearBuilt : 0,
                 MonthlyPrice = property.Financial != null ? property.Financial.MonthlyRent : 0,
                 ListPrice = property.Financial != null ? property.Financial.ListPrice : 0,
-                GrossYield = property.Financial != null ? (property.Financial.MonthlyRent * 12) / property.Financial.ListPrice : 0
+                GrossYield = property.Financial != null ? ((property.Financial.MonthlyRent * 12) / property.Financial.ListPrice)*100 : 0
             };
         }
     }

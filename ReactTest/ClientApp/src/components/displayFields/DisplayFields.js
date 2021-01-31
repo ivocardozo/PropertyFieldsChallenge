@@ -19,11 +19,24 @@ class DisplayFields extends Component {
             })
     }
 
+    saveRowHandler = (rowId) => {
+        let row = this.state.data.find(property => property.id === rowId)
+        axios.post('/properties/property', row)
+            .then(response => {
+                alert("Succesfully stored:" + response.data.address)
+            })
+            .catch(error => {
+                alert("Error when trying to store")
+            });
+    }
+
     render() {
-        console.log(this.state.data)
         return (
             <div>
-                <TableContent dataRows={this.state.data} />
+                <TableContent
+                    dataRows={this.state.data}
+                    buttonEvent={this.saveRowHandler}
+                />
             </div>
         )
     }
