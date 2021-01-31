@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PropertyApp.Services;
+using PropertyApp.Data;
 
 namespace ReactTest
 {
@@ -28,6 +30,9 @@ namespace ReactTest
             {
                 configuration.RootPath = "ClientApp/build";
             });
+            services.AddScoped<IDataRetrieveService, DataRetrieveService>();
+            services.AddScoped<IDataStoreService, DataStoreService>();
+            services.AddScoped<IDataRepository, DataRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
