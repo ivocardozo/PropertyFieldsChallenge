@@ -3,7 +3,7 @@ import axios from 'axios';
 
 class DisplayFields extends Component {
     componentDidMount() {
-        axios.get('/WeatherForecast')
+        axios.get('/properties/properties')
             .then(response => {
                 console.log(response)
             })
