@@ -4,6 +4,7 @@ namespace PropertyApp.Model
 {
     public class PropertyModel
     {
+        public int Id { get; set; }
         public string Address { get; set; }
         public int YearBuild { get; set; }
         public float ListPrice { get; set; }

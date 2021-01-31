@@ -45,6 +45,7 @@ namespace PropertyApp.Services
         {
             return new PropertyModel
             {
+                Id = property.Id,
                 Address = property.Address.Address1,
                 YearBuild = property.Financial != null ? property.Physical.YearBuilt : 0,
                 MonthlyPrice = property.Financial != null ? property.Financial.MonthlyRent : 0,
