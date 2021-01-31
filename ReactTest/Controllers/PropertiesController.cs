@@ -14,15 +14,23 @@ namespace ReactTest.Controllers
     public class PropertiesController : ControllerBase
     {
         private readonly IDataRetrieveService dataRetrieveService;
-        public PropertiesController(IDataRetrieveService dataRetrieveService)
+        private readonly IDataStoreService dataStoreService;
+        public PropertiesController(IDataRetrieveService dataRetrieveService, IDataStoreService dataStoreService)
         {
             this.dataRetrieveService = dataRetrieveService;
+            this.dataStoreService = dataStoreService;
         }
 
         [HttpGet("properties")]
         public List<PropertyModel> GetProperties()
         {
             return dataRetrieveService.RetrieveProperties();
+        }
+
+        [HttpPost("property")]
+        public PropertyModel PostProperty(PropertyModel propertyModel)
+        {
+            return dataStoreService.StoreProperty(propertyModel);
         }
     }
 }
